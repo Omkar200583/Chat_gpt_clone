@@ -167,18 +167,21 @@ async function generate(text) {
 }
 
 async function callServer(inputText) {
-  const response = await fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ threadId, message: inputText }),
-  });
+  const response = await fetch(
+    "https://chat-gpt-clone-yl60.onrender.com/chat",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        threadId,
+        message: inputText
+      })
+    }
+  );
 
-  let data = {};
-  try {
-    data = await response.json();
-  } catch {
-    // non-JSON response; handled below
-  }
+  const data = await response.json();
 
   if (!response.ok) {
     throw new Error(data.error || `Server error: ${response.status}`);
