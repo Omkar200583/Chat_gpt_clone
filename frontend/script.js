@@ -1,6 +1,6 @@
 
 
-const API_URL = "https://chat-gpt-clone-yl60.onrender.com";
+const API_URL = "https://chat-gpt-clone-yl60.onrender.com/chat";
 
 const form = document.getElementById("chatForm");
 const input = document.getElementById("message");
